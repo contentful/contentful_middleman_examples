@@ -1,0 +1,19 @@
+---
+title: Welcome to Middleman
+---
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>Single Content Type Example</h1>
+    <div class="md-col-8 md-offset-2">
+      <h3>Useful Links</h3>
+      <ul>
+        <% data.links.link.each do |id, link| %>
+          <li>
+            <a href="<%= link["url"] %>"><%= link["website_name"] %></a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
