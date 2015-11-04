@@ -13,7 +13,7 @@ teams and enabling cooperation between organizations.
 This example repository will include examples for:
 
 * [Single Content Type](./examples/single_content_type) - Interesting Development Links Compilation
-* [Multiple Content Types](./examples/multiple_content_types) - Simple Blog (Posts, Authors)
+* [Multiple Content Types](./examples/multiple_content_types) - Catalogue
 * [Multiple Spaces](./examples/multiple_spaces) - Combination of Both Examples
 
 Each example will contain a `README.md` file explaining in detail each of the Setups.

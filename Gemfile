@@ -2,3 +2,4 @@
 source "https://rubygems.org"
 
 gem "contentful_middleman"
+gem "contentful_bootstrap"

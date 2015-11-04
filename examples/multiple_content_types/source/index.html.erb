@@ -1,0 +1,62 @@
+---
+title: Welcome to Middleman
+---
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>Multiple Content Type Example</h1>
+    <div class="container">
+      <h3>Products</h3>
+      <% data.catalogue.product.each do |id, product| %>
+        <div class="row col-md-10">
+          <div class="col-md-3">
+            <img src="<%= product["image"]["url"] %>?w=140" alt="<%= product["image"]["title"] %>" />
+          </div>
+          <div class="col-md-8">
+            <h4><%= product["name"] %> <small>by <a href="<%= product["brand"]["website"] %>"><%= product["brand"]["name"] %></a></small></h4>
+            <h6><%= product["category"]["title"] %></h6>
+            <p class="small"><%= product["description"].slice(0, 100) %>...</p>
+            <a href="<%= product["url"] %>">Buy Now!</a>
+          </div>
+        </div>
+        <br />
+        <br />
+      <% end %>
+    </div>
+
+    <hr>
+
+    <div class="container">
+      <h3>Brands</h3>
+      <% data.catalogue.brand.each do |id, brand| %>
+        <div class="row col-md-10">
+          <div class="col-md-3">
+            <img src="<%= brand["logo"]["url"] %>?w=140" alt="<%= brand["logo"]["title"] %>" />
+          </div>
+          <div class="col-md-8">
+            <h4><%= brand["name"] %></h4>
+            <a href="<%= brand["website"] %>">Go to website</a>
+          </div>
+        </div>
+        <br>
+      <% end %>
+    </div>
+
+    <hr>
+
+    <div class="container">
+      <h3>Categories</h3>
+      <% data.catalogue.category.each do |id, category| %>
+        <div class="row col-md-10">
+          <div class="col-md-3">
+            <img src="<%= category["icon"]["url"] %>?w=140" alt="<%= category["icon"]["title"] %>" />
+          </div>
+          <div class="col-md-8">
+            <h4><%= category["title"] %></h4>
+          </div>
+        </div>
+        <br>
+      <% end %>
+    </div>
+  </div>
+</div>
