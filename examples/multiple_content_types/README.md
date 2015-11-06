@@ -8,9 +8,9 @@ Paste the following command inside your terminal:
 echo "Checkout Repository"         && git clone git@github.com:contentful-labs/contentful_middleman_examples.git && \
 echo "Go to This Example's Folder" && cd contentful_middleman_examples/examples/multiple_content_types && \
 echo "Install Dependencies"        && bundle install && \
-echo "Create Catalogue Space"      && contentful_bootstrap create_space my_catalogue --json-template bootstrap_templates/catalogue.json && \
-echo "Fetch Contentful Data"       && middleman contentful && \
-echo "Start Middleman Server"      && middleman server
+echo "Create Catalogue Space"      && bundle exec contentful_bootstrap create_space my_catalogue --json-template bootstrap_templates/catalogue.json && \
+echo "Fetch Contentful Data"       && bundle exec middleman contentful && \
+echo "Start Middleman Server"      && bundle exec middleman server
 ```
 
 Then open your browser and go to: [localhost:4567](http://localhost:4567)
