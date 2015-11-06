@@ -12,6 +12,7 @@
 
 # Ignore the data directory
 /data
+.*-space-hash
 
 # Ignore cache
 /.sass-cache

@@ -2,61 +2,84 @@
 title: Welcome to Middleman
 ---
 
-<div class="jumbotron">
+<div class="container">
+  <h1>Multiple Content Type Example</h1>
   <div class="container">
-    <h1>Multiple Content Type Example</h1>
-    <div class="container">
-      <h3>Products</h3>
-      <% data.catalogue.product.each do |id, product| %>
-        <div class="row col-md-10">
-          <div class="col-md-3">
-            <img src="<%= product["image"]["url"] %>?w=140" alt="<%= product["image"]["title"] %>" />
-          </div>
-          <div class="col-md-8">
-            <h4><%= product["name"] %> <small>by <a href="<%= product["brand"]["website"] %>"><%= product["brand"]["name"] %></a></small></h4>
-            <h6><%= product["category"]["title"] %></h6>
-            <p class="small"><%= product["description"].slice(0, 100) %>...</p>
-            <a href="<%= product["url"] %>">Buy Now!</a>
-          </div>
+    <h3>Products</h3>
+    <% data.catalogue.product.each do |id, product| %>
+      <div class="row col-md-12">
+        <div class="col-md-2">
+          <img src="<%= product["image"].first["url"] %>?w=140" alt="<%= product["image"].first["title"] %>" />
         </div>
-        <br />
-        <br />
-      <% end %>
-    </div>
-
-    <hr>
-
-    <div class="container">
-      <h3>Brands</h3>
-      <% data.catalogue.brand.each do |id, brand| %>
-        <div class="row col-md-10">
-          <div class="col-md-3">
-            <img src="<%= brand["logo"]["url"] %>?w=140" alt="<%= brand["logo"]["title"] %>" />
-          </div>
-          <div class="col-md-8">
-            <h4><%= brand["name"] %></h4>
-            <a href="<%= brand["website"] %>">Go to website</a>
-          </div>
+        <div class="col-md-6">
+          <h4><%= product["productName"] %> 
+            <% if product.has_key?("brand") %>
+              <small>by <a href="<%= product["brand"]["website"] %>"><%= product["brand"]["companyName"] %></a></small>
+            <% end %>
+          </h4>
+          <h6><%= product["categories"].map { |c| c["title"] }.join(", ") %></h6>
+          <p class="small"><%= product["productDescription"].slice(0, 100) %>...</p>
+          <a href="<%= product["website"] %>">Buy Now!</a>
+          <h6>Tags: <small><%= product["tags"].join(", ") if product.has_key?("tags") %></small></h6>
         </div>
-        <br>
-      <% end %>
-    </div>
-
-    <hr>
-
-    <div class="container">
-      <h3>Categories</h3>
-      <% data.catalogue.category.each do |id, category| %>
-        <div class="row col-md-10">
-          <div class="col-md-3">
-            <img src="<%= category["icon"]["url"] %>?w=140" alt="<%= category["icon"]["title"] %>" />
+        <% if product["image"].size > 1 %>
+          <div class="col-md-4">
+            <h6>Other Images</h6>
+            <div class="row">
+              <% product["image"].delete_at(0).each do |image| %>
+                <div class="col-md-1">
+                  <img src="<%= image["url"] %>?w=40" alt="<%= image["title"] %>" />
+                </div>
+              <% end %>
+            </div>
           </div>
-          <div class="col-md-8">
-            <h4><%= category["title"] %></h4>
-          </div>
+        <% end %>
+      </div>
+      <br />
+      <br />
+    <% end %>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h3>Brands</h3>
+    <% data.catalogue.brand.each do |id, brand| %>
+      <div class="row col-md-10">
+        <div class="col-md-3">
+          <img src="<%= brand["logo"]["url"] %>?w=140" alt="<%= brand["logo"]["title"] %>" />
         </div>
-        <br>
-      <% end %>
-    </div>
+        <div class="col-md-8">
+          <h4><%= brand["companyName"] %></h4>
+          <p><%= brand["companyDescription"].slice(0, 100) %>...</p>
+          <h6>
+            <% if brand.has_key?("phone") %>
+              Phone No: <%= brand["phone"].join(", ") %> &nbsp; | &nbsp;
+            <% end %>
+            <a href="<%= brand["website"] %>">Go to website</a> &nbsp; | &nbsp;
+            <a href="mailto:<%= brand["email"] %>">Email</a>
+          </h6>
+        </div>
+      </div>
+      <br>
+    <% end %>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h3>Categories</h3>
+    <% data.catalogue.category.each do |id, category| %>
+      <div class="row col-md-10">
+        <div class="col-md-3">
+          <img src="<%= category["icon"]["url"] %>?w=140" alt="<%= category["icon"]["title"] %>" />
+        </div>
+        <div class="col-md-8">
+          <h4><%= category["title"] %></h4>
+          <p><%= category["categoryDescription"] %></p>
+        </div>
+      </div>
+      <br>
+    <% end %>
   </div>
 </div>
