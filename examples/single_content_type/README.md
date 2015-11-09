@@ -8,8 +8,8 @@ Paste the following command inside your terminal:
 echo "Checkout Repository"         && git clone git@github.com:contentful-labs/contentful_middleman_examples.git && \
 echo "Go to This Example's Folder" && cd contentful_middleman_examples/examples/single_content_type && \
 echo "Install Dependencies"        && bundle install && \
-echo "Fetch Contentful Data"       && middleman contentful && \
-echo "Start Middleman Server"      && middleman server
+echo "Fetch Contentful Data"       && bundle exec middleman contentful && \
+echo "Start Middleman Server"      && bundle exec middleman server
 ```
 
 Then open your browser and go to: [localhost:4567](http://localhost:4567)
