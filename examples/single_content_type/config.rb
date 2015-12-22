@@ -1,8 +1,8 @@
 activate :contentful do |f|
-  f.access_token = "2e233e64dde3b688cc772a3eb080e7566570d277cbd4391a7fbec9e3217a6a9a"
-  f.space = {links: "u4lyfh69psb2"}
-  f.content_types = {link: "4D5cDE5S8Ee8E8AKS6uswe"}
-  f.cda_query = {content_type: "4D5cDE5S8Ee8E8AKS6uswe"}
+  f.access_token = "25f513e34e33916336bba1d740d135035d4e1d63b87fc446da374fec3aaccaca"
+  f.space = {links: "3fwy09k2gc9g"}
+  f.content_types = {link: "link"}
+  f.cda_query = {content_type: "link"}
 end
 
 set :css_dir, 'stylesheets'
