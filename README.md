@@ -1,6 +1,6 @@
 # Contentful Middleman Examples
 
-A useful collection of examples using the [contentful_middleman](https://github.com/contentful-labs/contentful_middleman) gem
+A useful collection of examples using the [contentful_middleman](https://github.com/contentful/contentful_middleman) gem
 
 ## Contentful
 [Contentful](http://www.contentful.com) is a content management platform for web applications,
