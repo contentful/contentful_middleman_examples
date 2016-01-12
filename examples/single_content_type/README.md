@@ -39,7 +39,7 @@ In [config.rb](./config.rb) you will find the above cited configuration block. L
 <ul>
   <% data.links.link.each do |id, link| %>
     <li>
-      <a href="<%= link["url"] %>"><%= link["website_name"] %></a>
+      <a href="<%= link["url"] %>"><%= link["websiteName"] %></a>
     </li>
   <% end %>
 </ul>
